@@ -1,12 +1,12 @@
 #
 bl_info = {
-    "name": "Select By Weight",
+    "name": "DeltaMod Blender Tools",
     "author": "Vidar Flodgren",
-    "location": "View 3D > Sidebar > Selection Tools",
-    "description": "Small tools to select by Weight",
+    "location": "View 3D > Sidebar > DMBT",
+    "description": "Collection of tools developed to fill missing needs to the core of blender",
     "version": (1, 0),
     "blender": (2, 93, 0),
-    "doc_url": "https://github.com/DeltaMod",
+    "doc_url": "https://github.com/DeltaMod/DeltaMod-Blender-Tools",
     "category": "Object",}
 
 
@@ -82,7 +82,7 @@ class UFUNC_OT_WEIGHT_SELECT(bpy.types.Operator):
 class OBJECT_PT_Weight_Selection_Panel(Panel):
     bl_label = "Select by Weight"
     bl_idname = "selweight"
-    bl_category = "Weight Selection"
+    bl_category = "DMBT"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
     bl_options = {"DEFAULT_CLOSED"}

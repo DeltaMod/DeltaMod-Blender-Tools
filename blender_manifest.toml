@@ -2,10 +2,10 @@ schema_version = "1.0.0"
 
 # Example of manifest file for a Blender extension
 # Change the values according to your extension
-id = "DMOD_Tools"
+id = "deltamodblendertools"
 version = "1.0.0"
-name = "Test Extension"
-tagline = "This is another extension"
+name = "DeltaMod Blender Tools"
+tagline = "Collection of assorted tools for blender"
 maintainer = "Developer name <vidar.flodgren@gmail.com>"
 # Supported types: "add-on", "theme"
 type = "add-on"
