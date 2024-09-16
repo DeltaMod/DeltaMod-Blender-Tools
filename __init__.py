@@ -41,7 +41,7 @@ class UFUNC_OT_WEIGHT_SELECT(bpy.types.Operator):
     bl_label = "Weight Select"
 
     def execute(self, context):
-        obj = context.object
+        obj  = context.object
         scene = context.scene
         DMT    = scene.DeltaMod_Tool_Props
         props  = DMT.Weight_Select_Props   
@@ -51,23 +51,28 @@ class UFUNC_OT_WEIGHT_SELECT(bpy.types.Operator):
         minWeight = props.minWeight
         maxWeight = props.maxWeight        
         vertexGroupIndex = obj.vertex_groups.active_index
-        
+        ActiveGroup = context.object.vertex_groups.active.name
+            
         if initial_mode == "EDIT":
             bpy.ops.mesh.select_mode(type="VERT")
             
         if initial_mode not in ["OBJECT"]:
             bpy.ops.object.mode_set(mode = "OBJECT")
-
+        print(len(obj.data.vertices))
+        
+        
         for vertID,vert in enumerate(obj.data.vertices):
+            i=vert.index
             try:
-                print(vert.groups[vertexGroupIndex].weight)
-                print(minWeight)
-                print(maxWeight)
-                if (vert.groups[vertexGroupIndex].weight <=maxWeight and vert.groups[vertexGroupIndex].weight >=minWeight):
+                vertweight = obj.vertex_groups[ActiveGroup].weight(i)
+                
+                if (vertweight <=maxWeight and vertweight >=minWeight):
+                    obj.data.vertices[i].select=True       
+            except RuntimeError:
+               if minWeight == 0:
                     obj.data.vertices[vertID].select=True
-            except:
-                if minWeight == 0:
-                    obj.data.vertices[vertID].select=True
+               
+
                 
             
         if initial_mode == "WEIGHT_PAINT":
