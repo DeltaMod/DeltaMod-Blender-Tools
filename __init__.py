@@ -60,10 +60,15 @@ class UFUNC_OT_WEIGHT_SELECT(bpy.types.Operator):
 
         for vertID,vert in enumerate(obj.data.vertices):
             try:
+                print(vert.groups[vertexGroupIndex].weight)
+                print(minWeight)
+                print(maxWeight)
                 if (vert.groups[vertexGroupIndex].weight <=maxWeight and vert.groups[vertexGroupIndex].weight >=minWeight):
                     obj.data.vertices[vertID].select=True
             except:
-                None
+                if minWeight == 0:
+                    obj.data.vertices[vertID].select=True
+                
             
         if initial_mode == "WEIGHT_PAINT":
             bpy.ops.object.mode_set(mode = "WEIGHT_PAINT")
@@ -81,7 +86,7 @@ class UFUNC_OT_WEIGHT_SELECT(bpy.types.Operator):
                       
 class OBJECT_PT_Weight_Selection_Panel(Panel):
     bl_label = "Select by Weight"
-    bl_idname = "selweight"
+    bl_idname = "DMBT_PT_selweight"
     bl_category = "DMBT"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
