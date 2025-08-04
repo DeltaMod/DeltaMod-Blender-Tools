@@ -1,9 +1,9 @@
-schema_version = "1.0.2"
+schema_version = "1.0.3"
 
 # Example of manifest file for a Blender extension
 # Change the values according to your extension
 id = "deltamodblendertools"
-version = "1.0.2"
+version = "1.0.3"
 name = "DeltaMod Blender Tools"
 tagline = "Collection of assorted tools for blender"
 maintainer = "Developer name <vidar.flodgren@gmail.com>"
